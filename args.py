@@ -1,4 +1,4 @@
-def sum_num(*args): #*args allows a function to accept any num of positional args
+def sum_num(*args): #*args allows a function to accept any num of positional args it is tuple contains all passed args
     total = 0
     for num in args:
         total += num
