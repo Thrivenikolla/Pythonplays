@@ -109,3 +109,43 @@ resource "aws_instance" "new_instance" {
     }
 }
 
+
+# variables+outputs
+variable "instance_type" {
+    description = "Type of EC2 instance"
+    default = "t2.micro"
+}
+variable "aws_region" {
+    description = "region of EC2 instance"
+    default = "us-east-1"
+}
+
+provider "aws" {
+    region = var.aws_region
+}
+
+data "aws_ami" "amazon_linux" {
+    most_recent = true
+
+    filter {
+        name = "name"
+        values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    }
+    owners = ["1234567897"]
+}
+
+resource "aws_instance" "new_instance" {
+    ami = "data.aws_ami.amazon_linux.id"
+    instance_type = var.instance_type
+
+    tags = {
+        Name = "EC2_instance"
+    }
+}
+
+#output
+
+output "instance_public_ip" {
+    description = "publicip of created instance"
+    value = aws_instance.new_instance.public_ip
+}
