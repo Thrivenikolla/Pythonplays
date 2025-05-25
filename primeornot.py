@@ -17,5 +17,3 @@ elif a >= 2:
         print(a, "is prime number")
     else:
         print(a, "is not prime number")
-
-
