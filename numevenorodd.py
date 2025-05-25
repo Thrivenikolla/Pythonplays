@@ -4,5 +4,4 @@ def even_odd(n):
     else:
         return f"{n} is odd"
 
-
 print(even_odd(int(input("Enter a number to check whether it is even or odd : "))))
