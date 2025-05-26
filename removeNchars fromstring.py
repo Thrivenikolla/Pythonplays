@@ -5,3 +5,4 @@ if n >= len(text):
 else:
     result = text[n:]
     print("Final string after removal of", n, result)
+    
