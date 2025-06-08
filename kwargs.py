@@ -3,4 +3,3 @@ def display(**kwargs):  #*args allows a function to accept any num of keyword ar
         print(f"{key}: {value}")
 
 display(name="sri", city="hyd")
-
